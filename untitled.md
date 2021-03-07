@@ -7,6 +7,8 @@ I was working on a side project with my friends recently, whereby we were attemp
 The model seems to be overfitting on the training set, whereby the training accuracies (**mean_train_score**) are much larger than the validation accuracy (**mean_cross_validation_score**). This is an issue, however, something less obvious seems to be happening here. Generally, the cross-validation score is meant to be representative of your test accuracy, but, because the model is evaluated numerous times on the validation data, which is meant to act as the **previously unseen data**, the model will come across a set of specific values of the hyperparameters that will give an overly optimistic validation accuracy. This phenomenon is known as **Overfitting on the validation set** or **Optimization bias** for short, and it is particularly evident when training a model and tuning it's hyperparameters on a small dataset. 
 
 
-
 To illustrate this further, imagine you are a teacher and you announce a quiz next week, but you don't give away any questions. 
 During the quiz, you tell the students that they will be assigned a question randomly and if they can answer it, great. However, if they can't, they have the option to pick another question. The students can keep switching questions until they find a question they like. The **previously unseen data** which is the quiz question is no longer unseen. All the questions, which is the validation set, has been used to optimise the student's score. Hence, if the student should attempt an external exam without the luxury of picking their own question, I would not expect them to perform as well as they did on your quiz. 
+
+![](new_hypparam.png)
+
