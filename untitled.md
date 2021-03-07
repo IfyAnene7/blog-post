@@ -12,3 +12,39 @@ During the quiz, you tell the students that they will be assigned a question ran
 
 ![](new_hypparam.png)
 
+Figure adapted from [source](https://amueller.github.io/COMS4995-s20/slides/aml-03-supervised-learning/#22)
+
+
+To further drive this point home, we can see from the plot above that, as the training accuracy increases, the validation accuracy (**validation set**) does not follow a similar pattern. It is displaying wild variations, which is far from what is expected of the model (**idealized generalization**) i.e a slightly similar trend with the training accuracy. Another important thing to note is, the best hyperparameter value, the value that maximises the validation accuracy, that is obtained after optimising the hyperparameters might not produce the best score when evaluated on the test set. This is elucidated in the plot above, the best hyperparameter value gives an accuracy of $\approx$ 85% (**maximum val accuracy**). When these values are used to train the model, it doesn't perform as expected. It is only able to achieve an accuracy of $\approx$ 64% on the test set. Therefore, we cannot trust both our best validation scores and their corresponding best hyperparameter values.      
+
+
+Things you can do when you encounter optimization bias:
+
+- If it is possible and feasible, get more data. 
+
+- Be very sceptical of your results when you try to optimise the hyperparameters of the model.
+
+- Don't oversell your model. Endeavour to let the people you are working with know that your validation scores are overly optimistic and that this might not be precisely representative of the model's performance. 
+
+- If you have a "moderate" amount of data, you can set aside a second validation set that is not used in optimising the hyperparameters. This validation set will be used to detect overfitting on the initial validation set. 
+
+
+In conclusion, overfitting on the validation set is a very nuanced problem that is difficult to identify if you have not come across it before. When we get good training and validation scores, we generally tend to fool ourselves into thinking that our model is performing well. The example using my friends project is a bit contrived because we did have enough data, hence if we trained the model and optimised it's hyperparameters on a small amount of data and unbeknownst to us we overfitted on the validation data, the test data (which has 50000 observations) is a good sanity check for the model. However, in the real world, this might not be the case, we might not have enough data to evaluate the validity of our model. Therefore, my overarching comment on this topic is to be sceptical of your results whenever you think you don't have enough data.  
+
+
+
+
+
+
+References:
+
+https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb
+
+https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students/blob/master/lectures/06_lecture-hyperparameter-optimization.ipynb
+
+https://www.youtube.com/watch?v=1cFiS8i3dBI&list=PLWmXHcz_53Q2BXsWviGgEqdlSHmfsjSzC&index=7
+
+http://fastml.com/two-faces-of-overfitting/
+
+
+
