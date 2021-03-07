@@ -1,14 +1,19 @@
-#### **Demystifying Optimization bias**
+## **Demystifying Optimization bias**
 
-I was working on a side project with my friends recently, whereby we were attempting to carry out sentiment analysis on the IMDB dataset. The dataset was curated by Andrew Maas, and it contains 50,000 movie reviews (it can be found [here](https://www.kaggle.com/utathya/imdb-review-dataset/download)). After training our model using a training set of 500 observations (out of 50000), we evaluated the model by optimising the **max_df** hyperparameter (which is used to detect and filter stop words) of [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html), and **regularization** (C) hyperparameter of the [LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) model and exhaustively searching for the best hyperparameters through cross-validation. The results are displayed in the table below: 
+I was working on a side project with my friends recently, whereby we were attempting to carry out sentiment analysis on the IMDB dataset. The dataset we were working on was curated by Andrew Maas, and it contains 50,000 movie reviews (it can be found [here](https://www.kaggle.com/utathya/imdb-review-dataset/download)). 
+
+After training our model using a training set of 500 observations (out of 50000), we evaluated the model by optimising the **max_df** hyperparameter (which is used to detect and filter stop words) of [CountVectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html), and **regularization** (C) hyperparameter of the [LinearRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html) model and exhaustively searching for the best hyperparameters through cross-validation. The results are displayed in the table below: 
 
 ![](table1.png)
 
-The model seems to be overfitting on the training set, whereby the training accuracies (**mean_train_score**) are much larger than the validation accuracy (**mean_cross_validation_score**). This is an issue, however, something less obvious seems to be happening here. Generally, the cross-validation score is meant to be representative of your test accuracy, but, because the model is evaluated numerous times on the validation data, which is meant to act as the **previously unseen data**, the model will come across a set of specific values of the hyperparameters that will give an overly optimistic validation accuracy. This phenomenon is known as **Overfitting on the validation set** or **Optimization bias** for short, and it is particularly evident when training a model and tuning it's hyperparameters on a small dataset. 
+The model seems to be overfitting on the training set, whereby the training accuracies (**mean_train_score**) are much larger than the validation accuracy (**mean_cross_validation_score**). This is an issue, however, something less obvious seems to be happening here. 
+
+Generally, the cross-validation score is meant to be representative of your test accuracy, but, because the model is evaluated numerous times on the validation data, which is meant to act as the **previously unseen data**, the model will come across a set of specific values of the hyperparameters that will give an overly optimistic validation accuracy. This phenomenon is known as **Overfitting on the validation set** or **Optimization bias** for short, and it is particularly evident when training a model and tuning it's hyperparameters on a small dataset. 
 
 
 To illustrate this further, imagine you are a teacher and you announce a quiz next week, but you don't give away any questions. 
-During the quiz, you tell the students that they will be assigned a question randomly and if they can answer it, great. However, if they can't, they have the option to pick another question. The students can keep switching questions until they find a question they like. The **previously unseen data** which is the quiz question is no longer unseen. All the questions, which is the validation set, has been used to optimise the student's score. Hence, if the student should attempt an external exam without the luxury of picking their own question, I would not expect them to perform as well as they did on your quiz. 
+
+During the quiz, you tell the students that they will be assigned a question randomly and if they can answer it, great. However, if they can't, they have the option to pick another question. The students can keep switching questions until they find a question they like. The **previously unseen data** which is the quiz question is no longer unseen. All the questions, which is the validation set, has been used to optimise the student's score. Hence, if the student should attempt an external exam without the luxury of picking their own question, I would not expect them to perform as well as they did on your quiz.  
 
 ![](new_hypparam.png)
 
@@ -38,10 +43,10 @@ In conclusion, overfitting on the validation set is a very nuanced problem that 
 
 References:
 
-https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb
+[https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb](https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb)
 
-https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students/blob/master/lectures/06_lecture-hyperparameter-optimization.ipynb
+[https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students/blob/master/lectures/06_lecture-hyperparameter-optimization.ipynb](https://github.ubc.ca/MDS-2020-21/DSCI_571_sup-learn-1_students/blob/master/lectures/06_lecture-hyperparameter-optimization.ipynb)
 
-https://www.youtube.com/watch?v=1cFiS8i3dBI&list=PLWmXHcz_53Q2BXsWviGgEqdlSHmfsjSzC&index=7
+[https://www.youtube.com/watch?v=1cFiS8i3dBI&list=PLWmXHcz_53Q2BXsWviGgEqdlSHmfsjSzC&index=7](https://www.youtube.com/watch?v=1cFiS8i3dBI&list=PLWmXHcz_53Q2BXsWviGgEqdlSHmfsjSzC&index=7)
 
-http://fastml.com/two-faces-of-overfitting/
+[http://fastml.com/two-faces-of-overfitting/](http://fastml.com/two-faces-of-overfitting/)
