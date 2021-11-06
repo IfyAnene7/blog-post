@@ -8,7 +8,7 @@ After training our model using a training set of 500 observations (out of 50000)
 
 The model seems to be overfitting on the training set, whereby the training accuracies (**mean_train_score**) are much larger than the validation accuracy (**mean_cross_validation_score**). This is an issue, however, something less obvious seems to be happening here. 
 
-Generally, the cross-validation score is meant to be representative of your test accuracy, but, because the model is evaluated numerous times on the validation data, which is meant to act as the **previously unseen data**, the model will come across a set of specific values of the hyperparameters that will give an overly optimistic validation accuracy. This phenomenon is known as **Overfitting on the validation set** or **Optimization bias** for short, and it is particularly evident when training a model and tuning it's hyperparameters on a small dataset. 
+Generally, the cross-validation score is meant to be representative of your test accuracy, but, because the model is evaluated numerous times on the validation data, which is meant to act as the **previously unseen data**, the model will come across a set of specific values of the hyperparameters that will give an overly optimistic validation accuracy. This phenomenon is known as **Overfitting on the validation set** or **Optimisation bias** for short, and it is particularly evident when training a model and tuning it's hyperparameters on a small dataset. 
 
 
 To illustrate this further, imagine you are a teacher and you announce a quiz next week, but you don't give away any questions. 
@@ -23,7 +23,7 @@ Figure adapted from [source](https://amueller.github.io/COMS4995-s20/slides/aml-
 To further drive this point home, we can see from the plot above that, as the training accuracy increases, the validation accuracy (**validation set**) does not follow a similar pattern. It is displaying wild variations, which is far from what is expected of the model (**idealized generalization**) i.e a slightly similar trend with the training accuracy. Another important thing to note is, the best hyperparameter value, the value that maximises the validation accuracy, that is obtained after optimising the hyperparameters might not produce the best score when evaluated on the test set. This is elucidated in the plot above, the best hyperparameter value gives an accuracy of 85% (**maximum val accuracy**). When these values are used to train the model, it doesn't perform as expected. It is only able to achieve an accuracy of 64% on the test set. Therefore, we cannot trust both our best validation scores and their corresponding best hyperparameter values.      
 
 
-Things you can do when you encounter optimization bias:
+Things you can do when you encounter optimisation bias:
 
 - If it is possible and feasible, get more data. 
 
