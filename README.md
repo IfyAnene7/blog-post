@@ -40,7 +40,6 @@ In conclusion, overfitting on the validation set is a very nuanced problem that 
 
 
 
-
 References:
 
 [https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb](https://github.com/UBC-CS/cpsc330/blob/master/lectures/06_overfitting-validation-and-categoricals.ipynb)
