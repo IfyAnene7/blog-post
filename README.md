@@ -13,7 +13,7 @@ Generally, the cross-validation score is meant to be representative of your test
 
 To illustrate this further, imagine you are a teacher and you announce a quiz next week, but you don't give away any questions. 
 
-During the quiz, you tell the students that they will be assigned a question randomly and if they can answer it, great. However, if they can't, they have the option to pick another question. The students can keep switching questions until they find a question they like. The **previously unseen data** which is the quiz question is no longer unseen. All the questions, which is the validation set, has been used to optimise the student's score. Hence, if the student should attempt an external exam without the luxury of picking their own question, I would not expect them to perform as well as they did on your quiz.  
+During the quiz, you tell the students that they will be assigned a question randomly and if they can answer it, great. However, if they can't, they have the option to pick another question. The students can keep switching questions until they find a question they like. The **previously unseen data** which is the quiz question is no longer unseen. All the questions, which are the validation set, have been used to optimise the student's score. Hence, if the student should attempt an external exam without the luxury of picking their own question, I would not expect them to perform as well as they did on your quiz.  
 
 ![](new_hypparam.png)
 
